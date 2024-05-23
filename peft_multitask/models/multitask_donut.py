@@ -28,9 +28,9 @@ def shift_tokens_right(input_ids: torch.Tensor, pad_token_id: int, decoder_start
 # model class
 class MultitaskModel(nn.Module):
     
-    def __init__(self, encoder, decoder_names):
+    def __init__(self, model, decoder_names):
         super(MultitaskModel, self).__init__()
-        self.encoder = encoder
+        self.encoder = model.encoder
         self.tasks = decoder_names
         self.decoders_dict = nn.ModuleDict()
         self.loss_dict ={task: 1_000_000 for task in decoder_names}
