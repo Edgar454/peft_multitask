@@ -438,7 +438,7 @@ def replace_encoder_forward_method_with_modified(encoder):
     encoder.forward = types.MethodType(modified_encoder_forward, encoder)
     
 def replace_donut_encoder_forward_method(swin):
-    encoder.forward = types.MethodType(modified_forward, swin)
+    swin.forward = types.MethodType(modified_forward, swin)
     
     
 # function to wrap it all togetget
